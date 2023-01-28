@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=AnimalEconomy 
+Comment=AnimalEconomy P2P Cryptocurrency
+Comment[fr]=AnimalEconomy, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=AnimalEconomy, eşten eşe kriptografik sanal para birimi
+Exec=aney-qt %u
+Terminal=false
+Type=Application
+Icon=pivx128
+MimeType=x-scheme-handler/aney;
+Categories=Office;Finance;
+StartupWMClass=aney-qt
