@@ -12,7 +12,7 @@ AnimalEconomy Standard wallet repository
 - Prefix: ANEY adresses start with the capital letter "A"
 - Ports: 33499 (p2p) / 32000 (rpc)
 
-- Explorer https://explorer.AnimalEconomy.net/ANEY/blocks
+- Explorer https://explorer.aney.one/
 
 - Website [https://aney.one/](https://aney.one/)
 
