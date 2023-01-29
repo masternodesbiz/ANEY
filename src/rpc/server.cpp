@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2021-2023 The Animal Economy Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -300,9 +300,7 @@ static const CRPCCommand vRPCCommands[] =
         {"network", "clearbanned", &clearbanned, true },
 
         /* Block chain and UTXO */
-        {"blockchain", "findserial", &findserial, true },
         {"blockchain", "getblockindexstats", &getblockindexstats, true },
-        {"blockchain", "getserials", &getserials, true },
         {"blockchain", "getblockchaininfo", &getblockchaininfo, true },
         {"blockchain", "getbestblockhash", &getbestblockhash, true },
         {"blockchain", "getblockcount", &getblockcount, true },
@@ -372,19 +370,10 @@ static const CRPCCommand vRPCCommands[] =
         {"aney", "createmasternodekey", &createmasternodekey, true },
         {"aney", "getmasternodeoutputs", &getmasternodeoutputs, true },
         {"aney", "listmasternodeconf", &listmasternodeconf, true },
+        {"aney", "getactivemasternodecount", &getactivemasternodecount, true },
         {"aney", "getmasternodestatus", &getmasternodestatus, true },
         {"aney", "getmasternodewinners", &getmasternodewinners, true },
         {"aney", "getmasternodescores", &getmasternodescores, true },
-        {"aney", "preparebudget", &preparebudget, true },
-        {"aney", "submitbudget", &submitbudget, true },
-        {"aney", "mnbudgetvote", &mnbudgetvote, true },
-        {"aney", "getbudgetvotes", &getbudgetvotes, true },
-        {"aney", "getnextsuperblock", &getnextsuperblock, true },
-        {"aney", "getbudgetprojection", &getbudgetprojection, true },
-        {"aney", "getbudgetinfo", &getbudgetinfo, true },
-        {"aney", "mnbudgetrawvote", &mnbudgetrawvote, true },
-        {"aney", "mnfinalbudget", &mnfinalbudget, true },
-        {"aney", "checkbudgets", &checkbudgets, true },
         {"aney", "mnsync", &mnsync, true },
         {"aney", "spork", &spork, true },
 
@@ -395,27 +384,6 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet", "getaddressinfo", &getaddressinfo, true },
         {"wallet", "getstakingstatus", &getstakingstatus, false },
         {"wallet", "multisend", &multisend, false },
-        {"zerocoin", "createrawzerocoinspend", &createrawzerocoinspend, false },
-        {"zerocoin", "getzerocoinbalance", &getzerocoinbalance, false },
-        {"zerocoin", "listmintedzerocoins", &listmintedzerocoins, false },
-        {"zerocoin", "listspentzerocoins", &listspentzerocoins, false },
-        {"zerocoin", "listzerocoinamounts", &listzerocoinamounts, false },
-        {"zerocoin", "mintzerocoin", &mintzerocoin, false },
-        {"zerocoin", "spendzerocoin", &spendzerocoin, false },
-        {"zerocoin", "spendrawzerocoin", &spendrawzerocoin, true },
-        {"zerocoin", "spendzerocoinmints", &spendzerocoinmints, false },
-        {"zerocoin", "resetmintzerocoin", &resetmintzerocoin, false },
-        {"zerocoin", "resetspentzerocoin", &resetspentzerocoin, false },
-        {"zerocoin", "getarchivedzerocoin", &getarchivedzerocoin, false },
-        {"zerocoin", "importzerocoins", &importzerocoins, false },
-        {"zerocoin", "exportzerocoins", &exportzerocoins, false },
-        {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false },
-        {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false },
-        {"zerocoin", "getzpivseed", &getzpivseed, false },
-        {"zerocoin", "setzpivseed", &setzpivseed, false },
-        {"zerocoin", "generatemintlist", &generatemintlist, false },
-        {"zerocoin", "searchdzpiv", &searchdzpiv, false },
-        {"zerocoin", "dzpivstate", &dzpivstate, false },
 
 #endif // ENABLE_WALLET
 };

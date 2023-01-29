@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2015 The Dash Core developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2021-2023 The Animal Economy Core Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -79,15 +79,15 @@ BOOST_AUTO_TEST_CASE(netbase_splithost)
     BOOST_CHECK(TestSplitHost("www.bitcoin.org:80", "www.bitcoin.org", 80));
     BOOST_CHECK(TestSplitHost("[www.bitcoin.org]:80", "www.bitcoin.org", 80));
     BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("127.0.0.1:8887", "127.0.0.1", 8887));
+    BOOST_CHECK(TestSplitHost("127.0.0.1:33499", "127.0.0.1", 33499));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("[127.0.0.1]:8887", "127.0.0.1", 8887));
+    BOOST_CHECK(TestSplitHost("[127.0.0.1]:33499", "127.0.0.1", 33499));
     BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:8887", "::ffff:127.0.0.1", 8887));
-    BOOST_CHECK(TestSplitHost("[::]:8887", "::", 8887));
-    BOOST_CHECK(TestSplitHost("::8887", "::8887", -1));
-    BOOST_CHECK(TestSplitHost(":8887", "", 8887));
-    BOOST_CHECK(TestSplitHost("[]:8887", "", 8887));
+    BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:33499", "::ffff:127.0.0.1", 33499));
+    BOOST_CHECK(TestSplitHost("[::]:33499", "::", 33499));
+    BOOST_CHECK(TestSplitHost("::33499", "::33499", -1));
+    BOOST_CHECK(TestSplitHost(":33499", "", 33499));
+    BOOST_CHECK(TestSplitHost("[]:33499", "", 33499));
     BOOST_CHECK(TestSplitHost("", "", -1));
 }
 
@@ -100,17 +100,17 @@ bool static TestParse(std::string src, std::string canon)
 BOOST_AUTO_TEST_CASE(netbase_lookupnumeric)
 {
     BOOST_CHECK(TestParse("127.0.0.1", "127.0.0.1:65535"));
-    BOOST_CHECK(TestParse("127.0.0.1:8887", "127.0.0.1:8887"));
+    BOOST_CHECK(TestParse("127.0.0.1:33499", "127.0.0.1:33499"));
     BOOST_CHECK(TestParse("::ffff:127.0.0.1", "127.0.0.1:65535"));
     BOOST_CHECK(TestParse("::", "[::]:65535"));
-    BOOST_CHECK(TestParse("[::]:8887", "[::]:8887"));
+    BOOST_CHECK(TestParse("[::]:33499", "[::]:33499"));
     BOOST_CHECK(TestParse("[127.0.0.1]", "127.0.0.1:65535"));
     BOOST_CHECK(TestParse(":::", "[::]:0"));
 }
 
 BOOST_AUTO_TEST_CASE(onioncat_test)
 {
-    // values from https://web.archive.org/web/20123349903543/http://www.cypherpunk.at/onioncat/wiki/OnionCat
+    // values from https://web.archive.org/web/20121122003543/http://www.cypherpunk.at/onioncat/wiki/OnionCat
     CNetAddr addr1(ResolveIP("5wyqrzbvrdsumnok.onion"));
     CNetAddr addr2(ResolveIP("FD87:D87E:EB43:edb1:8e4:3588:e546:35ca"));
     BOOST_CHECK(addr1 == addr2);

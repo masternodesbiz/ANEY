@@ -3,7 +3,7 @@ AnimalEconomy Core
 
 Setup
 ---------------------
-[AnimalEconomy Core](https://aney.net/) is the original AnimalEconomy client and it builds the backbone of the network. However, it downloads and stores the entire history of AnimalEconomy transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[AnimalEconomy Core](https://aney.one/) is the original AnimalEconomy client and it builds the backbone of the network. However, it downloads and stores the entire history of AnimalEconomy transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -26,9 +26,9 @@ Drag AnimalEconomy-Qt to your applications folder, and then run AnimalEconomy-Qt
 
 ### Need Help?
 
-* See the documentation at the [AnimalEconomy Wiki](https://github.com/TeamAnimalEconomy/aney)
+* See the documentation at the [AnimalEconomy Wiki](https://github.com/Animal-Economy/ANEY/)
 for help and more information.
-* Join our Discord server [Discord Server](https://discord.gg/HapZxgUKgK)
+* Join our Discord server [Discord Server](https://discord.com/invite/qxhuCEKrfd)
 
 Building
 ---------------------
@@ -48,15 +48,15 @@ The AnimalEconomy repo's [root README](/README.md) contains relevant information
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://github.com/TeamAnimalEconomy/aney)
+- [Source Code Documentation (External Link)](https://github.com/Animal-Economy/ANEY/)
 - [Translation Process](translation_process.md)
 - [Unit Tests](unit-tests.md)
 - [Unauthenticated REST Interface](REST-interface.md)
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [AnimalEconomy Homepage](https://github.com/TeamAnimalEconomy/aney).
-* Join the [AnimalEconomy Discord](https://discord.gg/HapZxgUKgK).
+* Discuss on the [AnimalEconomy Homepage](https://aney.one/).
+* Join the [AnimalEconomy Discord](https://discord.com/invite/qxhuCEKrfd).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

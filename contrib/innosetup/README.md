@@ -37,8 +37,8 @@ Create a project folder with the following elements
 * Fill in the following data:
     * Application Name: `AnimalEconomy Core`
     * Application Version: `2.0.0.0`
-    * Application Publisher: `2021-2023 The Animal Economy Developers`
-    * Application Website: `https://aney.net/`
+    * Application Publisher: `2023 The Animal Economy Core Developers`
+    * Application Website: `https://aney.one/`
 * Setup the destination folder:
     * Program Files Folder
     * Folder name: `AnimalEconomy`

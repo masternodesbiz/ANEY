@@ -1,5 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2021-2023 The Animal Economy Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -357,7 +357,6 @@ void MasterNodesWidget::onInfoMNClicked()
             // export data
             QString exportedMN = "masternode=1\n"
                                  "externalip=" + address.left(address.lastIndexOf(":")) + "\n" +
-                                 "masternodeaddr=" + address + + "\n" +
                                  "masternodeprivkey=" + index.sibling(index.row(), MNModel::PRIV_KEY).data(Qt::DisplayRole).toString() + "\n";
             GUIUtil::setClipboard(exportedMN);
             inform(tr("Masternode data copied to the clipboard."));
@@ -481,7 +480,7 @@ void MasterNodesWidget::onCreateMNClicked()
         inform(tr("Not enough balance to create a masternode.").arg(CURRENCY_UNIT.c_str()));
         return;
     }
-
+    
     showHideOp(true);
     MasterNodeWizardDialog *dialog = new MasterNodeWizardDialog(walletModel, window);
     if (openDialogWithOpaqueBackgroundY(dialog, window, 5, 7)) {

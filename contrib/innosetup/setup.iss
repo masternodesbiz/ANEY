@@ -2,10 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AnimalEconomy Core"
-#define MyAppPublisher "2021-2023 The Animal Economy Developers"
-#define MyAppURL "https://github.com/TeamAnimalEconomy/aney"
+#define MyAppPublisher "2023 The Animal Economy Core Developers"
+#define MyAppURL "https://github.com/Animal-Economy/ANEY"
 #define MyAppExeName "aney-qt.exe"
-#define MyAppExtraData "https://github.com/TeamAnimalEconomy/aney/releases/download/v2.0/bootstrap.zip"
+#define MyAppExtraData "https://explorer.Animal-Economy.net/bootstraps/ANEY/bootstrap.zip"
 #define MyAppVersion GetVersionNumbersString(".\package\" + MyAppExeName)
 
 #include ReadReg(HKLM, 'Software\WOW6432Node\Mitrich Software\Inno Download Plugin', 'InstallDir') + '\idp.iss'
@@ -74,10 +74,8 @@ Type: filesandordirs; Name: {code:GetDataDir}\blocks; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\chainstate; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\database; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\sporks; Components: bootstrap
-Type: filesandordirs; Name: {code:GetDataDir}\zerocoin; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\.lock; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\banlist.dat; Components: bootstrap
-Type: filesandordirs; Name: {code:GetDataDir}\budget.dat; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\fee_estimates.dat; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\mncache.dat; Components: bootstrap
 Type: filesandordirs; Name: {code:GetDataDir}\mnpayments.dat; Components: bootstrap

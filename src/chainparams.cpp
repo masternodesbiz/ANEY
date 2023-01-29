@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2015 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2021-2023 The Animal Economy Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -50,12 +50,13 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x000003379033d182e2c18040823ff53c5c0eef4aee26782fac4ce7a4dd82dd15"))
-    (2500, uint256("0xacfaf5acb34f1606bd9ffa87b2027cb8f5627c6c58bc8833c90ff3d0ee1f5554"));
+    (2500, uint256("0xacfaf5acb34f1606bd9ffa87b2027cb8f5627c6c58bc8833c90ff3d0ee1f5554"))
+    (7500, uint256("0x76ab3d0fe710f9393bf8d1a6fa0dddc14e2b630137d1262378f82cda4875d683"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1674608102, // * UNIX timestamp of last checkpoint block
-    4813,		// * total number of transactions between genesis and last checkpoint
-                //   (the tx=... number in the SetBestChain debug.log lines)
+    1674947310, // * UNIX timestamp of last checkpoint block
+    14817,    // * total number of transactions between genesis and last checkpoint
+                //   (the tx=... number in the UpdateTip debug.log lines)
     3000        // * estimated number of transactions per day after checkpoint
 };
 
@@ -88,6 +89,7 @@ public:
 
         genesis = CreateGenesisBlock(1671840609, 5702353, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+
         assert(consensus.hashGenesisBlock == uint256S("0x000003379033d182e2c18040823ff53c5c0eef4aee26782fac4ce7a4dd82dd15"));
         assert(genesis.hashMerkleRoot == uint256S("0x00b0a6835bb4649f6b5ecb1d243b505b44a1ea164ffa2193810c19afc275e489"));
 
@@ -95,15 +97,12 @@ public:
         consensus.powLimit   = ~UINT256_ZERO >> 20;   
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
-        consensus.nBudgetCycleBlocks = 30 * 24 * 60;       // approx. 1 every 30 days
-        consensus.nBudgetFeeConfirmations = 6;      // Number of confirmations for the finalization fee
         consensus.nCoinbaseMaturity = 100;
         consensus.nFutureTimeDriftPoW = 7200;
         consensus.nFutureTimeDriftPoS = 120;
         consensus.nMaxMoneyOut = 100000000 * COIN;
         consensus.nPoolMaxTransactions = 3;
-        consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
-        consensus.nStakeMinAge = 60 * 60;
+        consensus.nStakeMinAge = 60 * 60; // 1h
         consensus.nStakeMinDepth = 60;
         consensus.nStakeMinDepthV2 = 600;
         consensus.nTargetTimespan = 1 * 60;
@@ -122,38 +121,12 @@ public:
            { "ANEYBuRnxxxxxxxxxxxxxxxxxxxxtwNmwD", 0 }
         };
 
-        // height-based activations
-        consensus.height_last_ZC_AccumCheckpoint    = DISABLED;
-        consensus.height_last_ZC_WrappedSerials     = DISABLED;
-        consensus.height_start_InvalidUTXOsCheck    = DISABLED;
-        consensus.height_start_ZC_InvalidSerials    = DISABLED;
-        consensus.height_start_ZC_SerialRangeCheck  = DISABLED;
-        consensus.height_ZC_RecalcAccumulators      = DISABLED;
-
-        // Zerocoin-related params
-        consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
-                "4069182906412495150821892985591491761845028084891200728449926873928072877767359714183472702618963750149718246911"
-                "6507761337985909570009733045974880842840179742910064245869181719511874612151517265463228221686998754918242243363"
-                "7259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133"
-                "8441436038339044149526344321901146575444541784240209246165157233507787077498171257724679629263863563732899121548"
-                "31438167899885040445364023527381951378636564391212010397122822120720357";
-        consensus.ZC_MaxPublicSpendsPerTx = 637;    // Assume about 220 bytes each input
-        consensus.ZC_MaxSpendsPerTx = 7;            // Assume about 20kb each input
-        consensus.ZC_MinMintConfirmations = 20;
-        consensus.ZC_MinMintFee = 1 * CENT;
-        consensus.ZC_MinStakeDepth = 200;
-        consensus.ZC_TimeStart = 1615728970;        // 01/01/2030 @ 12:00am (UTC)
-        consensus.ZC_WrappedSerialsSupply = 0; //4131563 * COIN;   // zerocoin supply at height_last_ZC_WrappedSerials
-
         // Network upgrades
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight                   = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight              = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight                    = 201;
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight                 = 1;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight                     = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight                  = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight                  = 6150;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight              = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight      = 6150;
         consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight       = 6150;
         consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight = 6150;
@@ -180,21 +153,19 @@ public:
         pchMessageStart[3] = 0x1d;
         nDefaultPort = 33499;
 
-        vSeeds.push_back(CDNSSeedData("seed1", "seed1.aney.one"));
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.aney.one"));												   
         vSeeds.push_back(CDNSSeedData("seed2", "seed2.aney.one"));
 		vSeeds.push_back(CDNSSeedData("seed3", "seed3.aney.one"));
         vSeeds.push_back(CDNSSeedData("seed4", "seed4.aney.one"));
         vSeeds.push_back(CDNSSeedData("seed5", "seed5.aney.one"));
 		vSeeds.push_back(CDNSSeedData("seed6", "seed6.aney.one"));	
 
-
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 23);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 210);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x22)(0x2e)(0x35)(0x13).convert_to_container<std::vector<unsigned char> >();
-        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x52)(0xf1)(0xe1)(0x1B).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x52)(0xf1)(0xe1)(0x1B).convert_to_container<std::vector<unsigned char> >();																			
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x60)(0x70)(0x80)(0x97).convert_to_container<std::vector<unsigned char> >();
-
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
     }
@@ -227,14 +198,11 @@ public:
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // aney starting difficulty is 1 / 2^12
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
-        consensus.nBudgetCycleBlocks = 144;         // approx 10 cycles per day
-        consensus.nBudgetFeeConfirmations = 3;      // (only 8-blocks window for finalization on testnet)
         consensus.nCoinbaseMaturity = 15;
         consensus.nFutureTimeDriftPoW = 7200;
         consensus.nFutureTimeDriftPoS = 180;
         consensus.nMaxMoneyOut = 43199500 * COIN;
         consensus.nPoolMaxTransactions = 2;
-        consensus.nProposalEstablishmentTime = 60 * 5;  // at least 5 min old to make it into a budget
         consensus.nStakeMinAge = 60 * 60;
         consensus.nStakeMinDepth = 100;
         consensus.nStakeMinDepthV2 = 200;
@@ -249,51 +217,24 @@ public:
         consensus.nTime_EnforceNewSporkKey = 0;
         consensus.nTime_RejectOldSporkKey = 0;
 
-        // height based activations
-        consensus.height_last_ZC_AccumCheckpoint    = 999999999;
-        consensus.height_last_ZC_WrappedSerials     = 999999999;
-        consensus.height_start_InvalidUTXOsCheck    = 999999999;
-        consensus.height_start_ZC_InvalidSerials    = 999999999;
-        consensus.height_start_ZC_SerialRangeCheck  = 999999999;
-        consensus.height_ZC_RecalcAccumulators      = 999999999;
-
-        // Zerocoin-related params
-        consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
-                "4069182906412495150821892985591491761845028084891200728449926873928072877767359714183472702618963750149718246911"
-                "6507761337985909570009733045974880842840179742910064245869181719511874612151517265463228221686998754918242243363"
-                "7259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133"
-                "8441436038339044149526344321901146575444541784240209246165157233507787077498171257724679629263863563732899121548"
-                "31438167899885040445364023527381951378636564391212010397122822120720357";
-        consensus.ZC_MaxPublicSpendsPerTx = 637;    // Assume about 220 bytes each input
-        consensus.ZC_MaxSpendsPerTx = 7;            // Assume about 20kb each input
-        consensus.ZC_MinMintConfirmations = 20;
-        consensus.ZC_MinMintFee = 1 * CENT;
-        consensus.ZC_MinStakeDepth = 200;
-        consensus.ZC_TimeStart = 1501776000;
-        consensus.ZC_WrappedSerialsSupply = 0;   // WrappedSerials only on main net
-
         // Network upgrades
-        consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight                  = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight             = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight                   = 201;
-        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight                = 1441;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight                    = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight                 = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight                 = 1441;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight             = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight                  = 1541;
-        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight                  = 1641;
-        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight              = 1741;
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight    = 1841;
+        consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight                      = Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
+        consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight                 = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight                       = 201;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight                    = 1441;
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight                     = 1441;
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight         = 1541;
+        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight          = 1641;
+        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight    = 1741;
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight        = 1841;
 
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock                  = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock               = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock               = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock           = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].hashActivationBlock                = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].hashActivationBlock                = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].hashActivationBlock            = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].hashActivationBlock  = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_POS].hashActivationBlock                     = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].hashActivationBlock                  = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock                   = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].hashActivationBlock       = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].hashActivationBlock        = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].hashActivationBlock  =uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].hashActivationBlock      = uint256S("0x0");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -310,7 +251,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("tseeder", "tseeder.aney.net", true));
+        vSeeds.push_back(CDNSSeedData("tseeder", "tseeder.__Animal-Economy.net__", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet aney addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet aney script addresses start with '8' or '9'
@@ -352,14 +293,11 @@ public:
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // aney starting difficulty is 1 / 2^12
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
-        consensus.nBudgetCycleBlocks = 144;         // approx 10 cycles per day
-        consensus.nBudgetFeeConfirmations = 3;      // (only 8-blocks window for finalization on regtest)
         consensus.nCoinbaseMaturity = 100;
         consensus.nFutureTimeDriftPoW = 7200;
         consensus.nFutureTimeDriftPoS = 180;
         consensus.nMaxMoneyOut = 43199500 * COIN;
         consensus.nPoolMaxTransactions = 2;
-        consensus.nProposalEstablishmentTime = 60 * 5;  // at least 5 min old to make it into a budget
         consensus.nStakeMinAge = 0;
         consensus.nStakeMinDepth = 2;
         consensus.nTargetTimespan = 40 * 60;
@@ -372,52 +310,24 @@ public:
         private key hex: bd4960dcbd9e7f2223f24e7164ecb6f1fe96fc3a416f5d3a830ba5720c84b8ca
         Address: yCvUVd72w7xpimf981m114FSFbmAmne7j9
         */
-        consensus.strSporkPubKey = "045faca99360e622aa32e1910c9a370ec29e80e858e954f1904be46016ea38bd2b99ad499e42f83ada42605a982ae88b1004ca673c07de4bd49616e011eeebaa7f";
+        consensus.strSporkPubKey = "043969b1b0e6f327de37f297a015d37e2235eaaeeb3933deecd8162c075cee0207b13537618bde640879606001a8136091c62ec272dd0133424a178704e6e75bb7";
         consensus.strSporkPubKeyOld = "";
         consensus.nTime_EnforceNewSporkKey = 0;
         consensus.nTime_RejectOldSporkKey = 0;
-
-        // height based activations
-        consensus.height_last_ZC_AccumCheckpoint = 310;     // no checkpoints on regtest
-        consensus.height_last_ZC_WrappedSerials = -1;
-        consensus.height_start_InvalidUTXOsCheck = 999999999;
-        consensus.height_start_ZC_InvalidSerials = 999999999;
-        consensus.height_start_ZC_SerialRangeCheck = 300;
-        consensus.height_ZC_RecalcAccumulators = 999999999;
-
-        // Zerocoin-related params
-        consensus.ZC_Modulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
-                "4069182906412495150821892985591491761845028084891200728449926873928072877767359714183472702618963750149718246911"
-                "6507761337985909570009733045974880842840179742910064245869181719511874612151517265463228221686998754918242243363"
-                "7259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133"
-                "8441436038339044149526344321901146575444541784240209246165157233507787077498171257724679629263863563732899121548"
-                "31438167899885040445364023527381951378636564391212010397122822120720357";
-        consensus.ZC_MaxPublicSpendsPerTx = 637;    // Assume about 220 bytes each input
-        consensus.ZC_MaxSpendsPerTx = 7;            // Assume about 20kb each input
-        consensus.ZC_MinMintConfirmations = 10;
-        consensus.ZC_MinMintFee = 1 * CENT;
-        consensus.ZC_MinStakeDepth = 10;
-        consensus.ZC_TimeStart = 0;                 // not implemented on regtest
-        consensus.ZC_WrappedSerialsSupply = 0;
 
         // Network upgrades
         consensus.vUpgrades[Consensus::BASE_NETWORK].nActivationHeight =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight =
                 Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
-        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 201;
-        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 2500;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight            =
-                Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight         =
-                Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
+        consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 251;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 251;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight         =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight     = 2500;
-        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight          = 2500;
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].nActivationHeight          = 251;
         consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight          =
                 Consensus::NetworkUpgrade::ALWAYS_ACTIVE;
-        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight       = 2500;
+        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight       = 300;
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
