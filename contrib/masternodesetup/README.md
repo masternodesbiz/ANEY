@@ -1,4 +1,4 @@
-![Example-Logo](https://avatars.githubusercontent.com/u/74193190?v=4)
+![Example-Logo](https://avatars.githubusercontent.com/u/121462141?s=48&v=4)
 
 # AnimalEconomy Masternode Setup Guide
 ***
