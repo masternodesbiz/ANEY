@@ -4,7 +4,7 @@ AnimalEconomy Standard wallet repository
 ### Coin Specs
 
 - PoW Algorithm: Quark
-- Premine:  25,000,000 (Current supply of all coins for swapping to Animal Economy)
+- Premine:  25,000,000
 - PoW Blocks: 1 - 200
 - PoS Blocks: Starting from 201
 - Block Time: 60 Seconds
