@@ -10,7 +10,7 @@ AnimalEconomy Standard wallet repository
 - Block Time: 60 Seconds
 - Maturity: 100 Confirmations
 - Prefix: ANEY adresses start with the capital letter "A"
-- Ports: 33499 (p2p) / 32000 (rpc)
+- Ports: 33499 (p2p) / 33500 (rpc)
 
 - Explorer https://explorer.aney.one/
 
