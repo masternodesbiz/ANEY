@@ -731,8 +731,8 @@ za staking</translation>
         <translation>Filtriraj prema</translation>
     </message>
     <message>
-        <source>Amount of ANEY staked.</source>
-        <translation>Iznos ANEY koji se stakea.</translation>
+        <source>Amount of ANEY and zANEY staked.</source>
+        <translation>Iznos ANEY i zANEY koji se stakea.</translation>
     </message>
     <message>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
@@ -1586,8 +1586,36 @@ NODEOVI</translation>
         <translation>Mapiranje porta koristeći &amp;UPnP</translation>
     </message>
     <message>
+        <source>Enable automatic minting of ANEY units to zANEY</source>
+        <translation>Omogući automatsko stvaranje ANEY jedinica na zANEY</translation>
+    </message>
+    <message>
+        <source>Enable zANEY Automint</source>
+        <translation>Omogući automatsko stvaranje zANEY-a</translation>
+    </message>
+    <message>
+        <source>Enable automatic zANEY minting from specific addresses</source>
+        <translation>Omogući automatsko stvaranje zANEY-a s određjenih adresa</translation>
+    </message>
+    <message>
         <source>Enable Automint Addresses</source>
         <translation>Omogući Automint adrese</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming ANEY which get automatically converted to zANEY via Zerocoin Protocol (min: 10%)</source>
+        <translation>Postotak dolaznih ANEY koji se automatski pretvara u zANEY putem Zerocoin Protokola (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zANEY</source>
+        <translation>Postotak automatski stvorenog zANEY-a</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough ANEY for this denomination is available</source>
+        <translation>Pričekajte s automatskom pretvorbom u Zerocoin dok ne bude dostupno dovoljno ANEY-a za ovu denominaciju</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zANEY Denomination</source>
+        <translation>Preferirana denominacija za automatsko stvaranje zANEY-a</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2351,6 +2379,10 @@ Adresa: %4
     <message>
         <source>Custom Backup Path:</source>
         <translation>Put prilagođenog sigurnosnog kopiranja:</translation>
+    </message>
+    <message>
+        <source>Custom zANEY Backup Path:</source>
+        <translation>Prilagođeni put zANEY sigurnosne kopije:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -3409,8 +3441,8 @@ Došlo je do greške prilikom spremanja popisa adresa u %1. Molimo pokušajte po
         <translation>2) Zašto se moji ANEY ne mogu potrošiti?</translation>
     </message>
     <message>
-        <source>https://aney.one/</source>
-        <translation>https://aney.one/</translation>
+        <source>https://aney.net/</source>
+        <translation>https://aney.net/</translation>
     </message>
     <message>
         <source>1</source>
@@ -3426,19 +3458,22 @@ Došlo je do greške prilikom spremanja popisa adresa u %1. Molimo pokušajte po
                            ANEY is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
                            zero fees.  ANEY incorporates market leading security &amp;
-                           privacy.
+                           privacy and is also the first PoS (Proof of Stake) Cryptocurrency
+                           to implement ZeroCoin(zANEY) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            ANEY utilizes a Proof of Stake (PoS) consensus system algorithm,
                            allowing all owners of ANEY to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
-                           run Masternodes to earn additional income regulary.
+                           run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
 ANEY je oblik digitalnog online novca koji koristi blockchain tehnologiju
 koji se lako može slati i primati globalno, trenutno, i gotovo bez naknade.
-ANEY uključuje vodeću sigurnost i privatnost.
+ANEY uključuje vodeću sigurnost  i privatnost na tržištu
+i takođjer je prva PoS (Proof of Stake) kriptovaluta
+koja je implementirala ZeroCoin (zANEY) i Zerocoin staking.
 &lt;/p&gt;&lt;p align="justify"&gt;
 ANEY koristi algoritam konsenzusa Proof of Stake (PoS),
 omogućujući svim vlasnicima ANEY-a sudjelovanje u zarađi blokovih nagrada
@@ -3521,6 +3556,8 @@ da biste vidjeli i mogli potrošiti sredstva na mreži.
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            &lt;ul&gt;
+                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
+                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
                            &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
                            &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
                            &lt;/ul&gt;
@@ -3560,6 +3597,8 @@ Te usluge uključuju:
 &lt;/p&gt;&lt;p align="justify"&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Decentralizirano upravljanje (glasanje o zahtjevima)&lt;/li&gt;
+&lt;li&gt;Decentralizirani sustav proračuna (riznica)&lt;/li&gt;
 &lt;li&gt;Validacija transakcija unutar svakog bloka&lt;/li&gt;
 &lt;li&gt;Djeluje kao dodatni full node u mreži&lt;/li&gt;
 &lt;/ul&gt;
@@ -4420,7 +4459,7 @@ Jeste li sigurni?
         <translation>Staking aktivan</translation>
     </message>
     <message>
-        <source>Staking inactive</source>
+        <source>Staking not active</source>
         <translation>Staking nije aktivan</translation>
     </message>
     <message>
@@ -4917,6 +4956,10 @@ AnimalEconomy Wallet</source>
         <translation>Nije moguće dobiti zaključavanje na direktoriju podataka %s. AnimalEconomy vjerojatno već radi.</translation>
     </message>
     <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>Promjena ponašanja glasova na automatskom finaliziranom proračunu. mode = auto: Glasujte samo za točan završeni proračun s mojim generiranim proračunom. (niz, zadani: automatski)</translation>
+    </message>
+    <message>
         <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
         <translation>Stalne besplatne transakcije bez ograničenja stope na &lt;n&gt;* 1000 bajta po minuti (zadano: %u)</translation>
     </message>
@@ -4927,6 +4970,10 @@ AnimalEconomy Wallet</source>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Izbrišite sve transakcije lisnice i obnavljajte one dijelove blok-lanca kroz -rescan pri pokretanju</translation>
+    </message>
+    <message>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Izbriši sve zerocoin utroške i minteve koji su zabilježeni na blockchain database i reindexiraj ih (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
@@ -5222,6 +5269,10 @@ AnimalEconomy Wallet</source>
         <translation>Pogreška pri čitanju iz baze podataka, zatvaranje.</translation>
     </message>
     <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>Greška u zapisivanju zerocoinDB na disk</translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Greška</translation>
     </message>
@@ -5322,6 +5373,14 @@ AnimalEconomy Wallet</source>
         <translation>Preračunavanje ANEY-a u optjecaju...</translation>
     </message>
     <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Reindeksiranje zerocoin databaze...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Reindeksiranje zerocoin neuspjelo</translation>
+    </message>
+    <message>
         <source>Selected coins value is less than payment target</source>
         <translation>Odabrana vrijednost novčića je manja od količine za plačanje</translation>
     </message>
@@ -5330,8 +5389,8 @@ AnimalEconomy Wallet</source>
         <translation>Ovo je priprema za testiranje prije puštanja - upotrebljavajte na vlastiti rizik - nemojte ga koristiti za staking ili trgovinske aplikacije!</translation>
     </message>
     <message>
-        <source>Disable all ANEY specific functionality (Masternodes) (0-1, default: %u)</source>
-        <translation>Onemogući sve specifične funkcije ANEY (Masternodes) (0-1, zadano: %u)</translation>
+        <source>Disable all ANEY specific functionality (Masternodes, Zerocoin, Budgeting) (0-1, default: %u)</source>
+        <translation>Onemogući sve specifične funkcije ANEY (Masternodes, Zerocoin, Budgeting) (0-1, zadano: %u)</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -5406,6 +5465,14 @@ AnimalEconomy Wallet</source>
         <translation>Failed to parse public spend</translation>
     </message>
     <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Odabir Zerocoina nije uspjelo</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Neuspjelo brisanje zerocoinDB</translation>
+    </message>
+    <message>
         <source>Failed to write coin serial number into wallet</source>
         <translation>Nije uspio zapisi serijskog broja novčića u novčanik</translation>
     </message>
@@ -5440,6 +5507,10 @@ AnimalEconomy Wallet</source>
     <message>
         <source>Loading block index...</source>
         <translation>Učitavanje indeksa blokova...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Učitavanje predmemorije proračuna...</translation>
     </message>
     <message>
         <source>Loading masternode cache...</source>
@@ -5744,6 +5815,10 @@ AnimalEconomy Wallet</source>
         <translation>Sinkronizacija završena</translation>
     </message>
     <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Sinkronizacija proračuna...</translation>
+    </message>
+    <message>
         <source>Synchronizing masternode winners...</source>
         <translation>Usklađivanje masternode pobjednika...</translation>
     </message>
@@ -5754,6 +5829,10 @@ AnimalEconomy Wallet</source>
     <message>
         <source>Synchronizing sporks...</source>
         <translation>Sinkronizacija sporkova...</translation>
+    </message>
+    <message>
+        <source>Syncing zANEY wallet...</source>
+        <translation>Sinkronizacija zANEY novčanika...</translation>
     </message>
     <message>
         <source>This help message</source>
@@ -5864,6 +5943,10 @@ AnimalEconomy Wallet</source>
         <translation>Korisničko ime za JSON-RPC veze</translation>
     </message>
     <message>
+        <source>Value is below the smallest available denomination (= 1) of zANEY</source>
+        <translation>Vrijednost je niža od najmanje dostupne denominacije (= 1) zANEY-a</translation>
+    </message>
+    <message>
         <source>Verifying blocks...</source>
         <translation>Provjera blokova...</translation>
     </message>
@@ -5904,6 +5987,10 @@ AnimalEconomy Wallet</source>
         <translation>Upozorenje: nepodržani argument -debugnet ignoriran, upotrijebite -debug=net.</translation>
     </message>
     <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Nemate dovoljno Zerocoina u novčaniku</translation>
+    </message>
+    <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>orate obnoviti bazu podataka koristeći -index za promjenu -txindexa</translation>
     </message>
@@ -5914,6 +6001,14 @@ AnimalEconomy Wallet</source>
     <message>
         <source>ZeroMQ notification options:</source>
         <translation>Mogućnosti ZeroMQ obavijesti:</translation>
+    </message>
+    <message>
+        <source>Zerocoin minting available only on regtest</source>
+        <translation>Stvaranje Zerocoina dostupno je samo na regtestu</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin mogućnosti:</translation>
     </message>
     <message>
         <source>on startup</source>

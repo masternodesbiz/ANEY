@@ -1,5 +1,5 @@
 // Copyright (c) 2017-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,10 +8,14 @@
 #include "chain.h"
 #include "main.h"
 #include "txdb.h"
+#include "zpiv/deterministicmint.h"
 #include "wallet/wallet.h"
 
 bool CPivStake::InitFromTxIn(const CTxIn& txin)
 {
+    if (txin.IsZerocoinSpend())
+        return error("%s: unable to initialize CANEYStake from zerocoin spend", __func__);
+
     // Find the previous transaction in database
     uint256 hashBlock;
     CTransaction txPrev;

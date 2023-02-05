@@ -1,5 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -128,7 +128,7 @@ void SendWidget::refreshAmounts()
 
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
 
-    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit));
+    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, false));
 
     CAmount totalAmount = 0;
     if (coinControlDialog->coinControl->HasSelected()) {
@@ -143,7 +143,8 @@ void SendWidget::refreshAmounts()
     ui->labelAmountRemaining->setText(
             GUIUtil::formatBalance(
                     totalAmount,
-                    nDisplayUnit
+                    nDisplayUnit,
+                    false
                     )
     );
 }

@@ -28,9 +28,9 @@ Build-Depends: debhelper,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2
-Homepage: https://aney.one
-Vcs-Git: git://github.com/Animal-Economy/ANEY.git
-Vcs-Browser: https://github.com/Animal-Economy/ANEY
+Homepage: https://www.aney.net/
+Vcs-Git: git:github.com/TeamAnimalEconomy/aney.git
+Vcs-Browser: https://github.com/TeamAnimalEconomy/aney/
 
 Package: aneyd
 Architecture: any

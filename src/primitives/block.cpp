@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,16 +34,6 @@ uint256 CBlockHeader::GetHash() const
     return SerializeHash(*this);
 }
 
-CScript CBlock::GetPaidPayee(int nHeight, CAmount nAmount) const
-{
-    const auto& tx = vtx[IsProofOfWork() ? 0 : 1];
-
-    for (const CTxOut& out : tx.vout) {
-        if (out.nValue == nAmount) return out.scriptPubKey;
-    }
-
-    return CScript();
-}
 std::string CBlock::ToString() const
 {
     std::stringstream s;

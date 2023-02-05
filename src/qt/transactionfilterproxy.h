@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -60,6 +60,9 @@ public:
     /** Set whether to hide orphan stakes. */
     void setHideOrphans(bool fHide);
 
+    /** Only zc txes **/
+    void setShowZcTxes(bool fOnlyZc);
+
     /** Only stakes txes **/
     void setOnlyStakesandMN(bool fOnlyStakesandMN);
 
@@ -81,8 +84,10 @@ private:
     int limitRows;
     bool showInactive;
     bool fHideOrphans = true;
+    bool fOnlyZc = false;
     bool fOnlyStakesandMN = false;
 
+    bool isZcTx(int type) const;
     bool isStakeTx(int type) const;
 	bool isMasternodeRewardTx(int type) const;
 };

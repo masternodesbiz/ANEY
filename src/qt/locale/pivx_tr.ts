@@ -699,8 +699,8 @@ Stake için kaldırın</translation>
         <translation>Filtrele</translation>
     </message>
     <message>
-        <source>Amount of ANEY staked.</source>
-        <translation>Stake edilmiş ANEY miktarı</translation>
+        <source>Amount of ANEY and zANEY staked.</source>
+        <translation>Stake edilmiş ANEY ve zANEY miktarı</translation>
     </message>
     <message>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
@@ -1381,8 +1381,36 @@ Emin misiniz?</translation>
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
+        <source>Enable automatic minting of ANEY units to zANEY</source>
+        <translation>ANEY birimlerinin zANEY'e otomatik basımını ektinleştir</translation>
+    </message>
+    <message>
+        <source>Enable zANEY Automint</source>
+        <translation>zANEY Otomatik basımı etkinleştir</translation>
+    </message>
+    <message>
+        <source>Enable automatic zANEY minting from specific addresses</source>
+        <translation>Belirli bir adresten otomatik zANEY minting yapılmasını etkinleştir</translation>
+    </message>
+    <message>
         <source>Enable Automint Addresses</source>
         <translation>Automint adreslerini etkinleştir</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming ANEY which get automatically converted to zANEY via Zerocoin Protocol (min: 10%)</source>
+        <translation>Zerocoin Protokolü üzerinden otomatik olarak zANEY'ye dönüştürülen gelen ANEY yüzdesi (dakika: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zANEY</source>
+        <translation>Otomatikleştirilmiş zANEY yüzdesi</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough ANEY for this denomination is available</source>
+        <translation>Bu bölen için yeterli ANEY bulunana kadar Zerocoin'e otomatik dönüştürmede kalın</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zANEY Denomination</source>
+        <translation>Tercih edilen Automint zANEY Nominal değeri</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2042,6 +2070,10 @@ Adres: %4
     <message>
         <source>Custom Backup Path:</source>
         <translation>Özel Yedekleme Yolu:</translation>
+    </message>
+    <message>
+        <source>Custom zANEY Backup Path:</source>
+        <translation>Özel zANEY Yedekleme Yolu:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -2921,19 +2953,22 @@ Verify that you have installed a predetermined text editor.</source>
                            ANEY is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
                            zero fees.  ANEY incorporates market leading security &amp;
-                           privacy.
+                           privacy and is also the first PoS (Proof of Stake) Cryptocurrency
+                           to implement ZeroCoin(zANEY) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            ANEY utilizes a Proof of Stake (PoS) consensus system algorithm,
                            allowing all owners of ANEY to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
-                           run Masternodes to earn additional income regulary.
+                           run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
                            ANEY blockchain teknolojisini kullanan bir dijital online para birimidir
                            global olarak anında ve sıfıra yakın ücretlerle transfer edilebilir
-                           ANEY sektördeki en ileri güvenlik ve gizliliğe sahip olmakla birlikte.
+                           ANEY sektördeki en ileri güvenlik ve gizliliğe sahip olmakla birlikte
+                          Zerocoin (zANEY) ve Zerocoin staking özelliklerini
+                          uygulayan ilk PoS (Proof of Stake) Kriptoparadır.
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            ANEY bir  Proof of Stake (PoS) konsensüs algoritma sistemi kullanmaktadır,
 bu sayede ANEY sahipleri blok ödülü kazanımına katılabilmektedir
@@ -3000,6 +3035,8 @@ bu sayede ANEY sahipleri blok ödülü kazanımına katılabilmektedir
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            &lt;ul&gt;
+                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
+                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
                            &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
                            &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
                            &lt;/ul&gt;
@@ -3039,6 +3076,8 @@ bu sayede ANEY sahipleri blok ödülü kazanımına katılabilmektedir
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            &lt;ul&gt;
+                           &lt;li&gt;Merkeziyetsiz yönetim (Teklif Onaylama)&lt;/li&gt;
+                           &lt;li&gt;Merkeziyetsiz bütçe sistemi (Hazine)&lt;/li&gt;
                            &lt;li&gt;Her blogun içinde işlem onayı&lt;/li&gt;
                            &lt;li&gt;Ağda ek bir düğüm olarak görev yapmak&lt;/li&gt;
                            &lt;/ul&gt;
@@ -3819,7 +3858,7 @@ Emin misiniz?
         <translation>Stake etkin</translation>
     </message>
     <message>
-        <source>Staking inactive</source>
+        <source>Staking not active</source>
         <translation>Stake kapalı</translation>
     </message>
     <message>
@@ -4154,6 +4193,10 @@ Hoşgeldiniz</translation>
         <translation>Veri dizini %s üzerinde bir kilit elde edemiyor. AnimalEconomy muhtemelen zaten çalışıyor.</translation>
     </message>
     <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>Otomatik sonuçlandırılmış bütçe oylama davranışını değiştirin. mode = auto: Yalnızca kesin bütçelendirilmiş bütçeyi, oluşturulan bütçemle eşleştirmek için oy verin. (dize, varsayılan: otomatik)</translation>
+    </message>
+    <message>
         <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
         <translation>Ücretsiz işlemleri belirli aralıklarla sınırla &lt;n&gt;*1000 bytes dakikada (varsayılan: %u)</translation>
     </message>
@@ -4164,6 +4207,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Tüm cüzdan işlemlerini sil ve sadece -rescan on startup komutuyla ilgili kısmımları sadece kurtar</translation>
+    </message>
+    <message>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Blockchain'e kaydedilmiş tüm zerocoin ve mintleri sil ve tekrar endeksle (0-1, varsayılan: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
@@ -4454,6 +4501,10 @@ Hoşgeldiniz</translation>
         <translation>Veritabanı okunurken hata oluştu, kapatılıyorç</translation>
     </message>
     <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>ZerocoinDB diske yazılırken hata oluştu</translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -4554,6 +4605,14 @@ Hoşgeldiniz</translation>
         <translation>ANEY tedariği tekrar hesaplanıyor...</translation>
     </message>
     <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Zerocoin veritabanı tekrar endeksleniyor...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Zerocoin tekrar endekslemesi başarısız</translation>
+    </message>
+    <message>
         <source>Selected coins value is less than payment target</source>
         <translation>Seçili koinlerin değeri hedeflenen ödeme tutarından düşük</translation>
     </message>
@@ -4562,8 +4621,8 @@ Hoşgeldiniz</translation>
         <translation>Bu ön-sürümdeki bir test programıdır - riski kabullenerek kullanınız - staking ve ticaret uygulamalarında kullanmayın.</translation>
     </message>
     <message>
-        <source>Disable all ANEY specific functionality (Masternodes) (0-1, default: %u)</source>
-        <translation>ANEY spesifik tüm fonksiyonaliteyi devre dışı bırak (Masternodes) (0-1, varsayılan: %u)</translation>
+        <source>Disable all ANEY specific functionality (Masternodes, Zerocoin, Budgeting) (0-1, default: %u)</source>
+        <translation>ANEY spesifik tüm fonksiyonaliteyi devre dışı bırak (Masternodes, Zerocoin, Budgeting) (0-1, varsayılan: %u)</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -4638,6 +4697,14 @@ Hoşgeldiniz</translation>
         <translation>Açık harcama çözümlemesi başarısız</translation>
     </message>
     <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Zerocoin seçimi başarısız</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>ZerocoinDB silinmesi başarısız</translation>
+    </message>
+    <message>
         <source>Failed to write coin serial number into wallet</source>
         <translation>Cüzdana koin seri numarası yazımı başarısız</translation>
     </message>
@@ -4664,6 +4731,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Loading block index...</source>
         <translation>Blok endeksi yükleniyor...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Bütçe ön belleği yükleniyor...</translation>
     </message>
     <message>
         <source>Loading masternode cache...</source>
@@ -4922,6 +4993,10 @@ Hoşgeldiniz</translation>
         <translation>Eşzamanlama tamamlandı</translation>
     </message>
     <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Bütçe eşzamanlanıyor..</translation>
+    </message>
+    <message>
         <source>Synchronizing masternode winners...</source>
         <translation>Masternode kazananları eşzamanlanıyor..</translation>
     </message>
@@ -4932,6 +5007,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Synchronizing sporks...</source>
         <translation>Sporklar eşzamanlanıyor..</translation>
+    </message>
+    <message>
+        <source>Syncing zANEY wallet...</source>
+        <translation>zANEY cüzdanı eşzamanlanıyor..</translation>
     </message>
     <message>
         <source>This help message</source>
@@ -5026,6 +5105,10 @@ Hoşgeldiniz</translation>
         <translation>JSON-RPC bağlantısı için kullanıcı adı</translation>
     </message>
     <message>
+        <source>Value is below the smallest available denomination (= 1) of zANEY</source>
+        <translation>Aşağıdaki değer zANEY'in mümkün olan en küçük bölüm değeridir (=1)</translation>
+    </message>
+    <message>
         <source>Verifying blocks...</source>
         <translation>Bloklar doğrulanıyor...</translation>
     </message>
@@ -5066,6 +5149,10 @@ Hoşgeldiniz</translation>
         <translation>Hata: Desteklenmeyen argüman -debugnet yok sayıldı, -debug=net kullanın.</translation>
     </message>
     <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Cüzdanınızda yeterli miktarda Zerocoin bulunmuyor</translation>
+    </message>
+    <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>Tx endeksini değiştirmek için veritabanını -reindex kullanarak tekrar oluşturmanız gerekmektedir </translation>
     </message>
@@ -5076,6 +5163,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>ZeroMQ notification options:</source>
         <translation>ZeroMQ bildirim seçenekleri:</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Zerocoin seçenekleri:</translation>
     </message>
     <message>
         <source>on startup</source>

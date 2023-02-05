@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -54,28 +54,30 @@ QString BitcoinUnits::id(int unit)
     }
 }
 
-QString BitcoinUnits::name(int unit)
+QString BitcoinUnits::name(int unit, bool isZpiv)
 {
     const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
+    QString z = "";
+    if(isZpiv) z = "z";
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
         case PIV:
-            return CURR_UNIT;
+            return z + CURR_UNIT;
         case mPIV:
-            return QString("m") + CURR_UNIT;
+            return z + QString("m") + CURR_UNIT;
         case uPIV:
-            return QString::fromUtf8("μ") + CURR_UNIT;
+            return z + QString::fromUtf8("μ") + CURR_UNIT;
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case PIV:
-            return QString("t") + CURR_UNIT;
+            return z + QString("t") + CURR_UNIT;
         case mPIV:
-            return QString("mt") + CURR_UNIT;
+            return z + QString("mt") + CURR_UNIT;
         case uPIV:
-            return QString::fromUtf8("μt") + CURR_UNIT;
+            return z + QString::fromUtf8("μt") + CURR_UNIT;
         default:
             return QString("???");
         }
@@ -213,7 +215,7 @@ QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool p
     return QString("<span style='white-space: nowrap;'>%1</span>").arg(str);
 }
 
-QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros)
+QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZPIV)
 {
     QSettings settings;
     int digits = settings.value("digits").toInt();
@@ -230,12 +232,12 @@ QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussi
         }
     }
 
-    return result + QString(" ") + name(unit);
+    return result + QString(" ") + name(unit, isZPIV);
 }
 
-QString BitcoinUnits::floorHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros)
+QString BitcoinUnits::floorHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZPIV)
 {
-    QString str(floorWithUnit(unit, amount, plussign, separators, cleanRemainderZeros));
+    QString str(floorWithUnit(unit, amount, plussign, separators, cleanRemainderZeros, isZPIV));
     str.replace(QChar(THIN_SP_CP), QString(COMMA_HTML));
     return QString("<span style='white-space: nowrap;'>%1</span>").arg(str);
 }

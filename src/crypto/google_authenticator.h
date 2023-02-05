@@ -1,12 +1,11 @@
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef CRYPTO_GOOGLE_AUTHENTICATOR_H
-#define CRYPTO_GOOGLE_AUTHENTICATOR_H
+#ifndef AnimalEconomy_CRYPTO_GOOGLE_AUTHENTICATOR_H
+#define AnimalEconomy_CRYPTO_GOOGLE_AUTHENTICATOR_H
 
-#include "utilstrencodings.h"
-#include <string>
+#include <cstdint>
 
 /** A Google Authenticator support class. */
 class GoogleAuthenticator
@@ -15,17 +14,12 @@ private:
     static const int INTERVAL_LENGHT = 30;
     static const int PIN_LENGHT = 6;
 
-    std::string seed;
-
+    const unsigned char* key;
+    const int len;
 public:
-    GoogleAuthenticator(std::string base32_seed)
-    {
-        seed = DecodeBase32(base32_seed);
-    }
+    GoogleAuthenticator(const unsigned char* key, const int len) : key(key), len(len) {}
 
     int GeneratePin();
-
-    static std::string CreateNewSeed(int size = 20);
 };
 
-#endif // CRYPTO_GOOGLE_AUTHENTICATOR_H
+#endif // AnimalEconomy_CRYPTO_GOOGLE_AUTHENTICATOR_H

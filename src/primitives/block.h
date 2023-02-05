@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,7 +49,7 @@ public:
         READWRITE(nBits);
         READWRITE(nNonce);
 
-        // Header changes to include accumulator checksum
+        //zerocoin active, header changes to include accumulator checksum
         if(nVersion > 3 && nVersion < 7)
             READWRITE(nAccumulatorCheckpoint);
     }
@@ -143,8 +143,6 @@ public:
     {
         return !IsProofOfStake();
     }
-
-    CScript GetPaidPayee(int nHeight, CAmount nAmount) const;
 
     std::string ToString() const;
     void print() const;

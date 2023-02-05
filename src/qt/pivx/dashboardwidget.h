@@ -1,5 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,8 +89,6 @@ public:
 
     void run(int type) override;
     void onError(QString error, int type) override;
-
-    void setPrivacy(bool isPrivate);
 
 public Q_SLOTS:
     void walletSynced(bool isSync);

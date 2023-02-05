@@ -704,8 +704,8 @@ do stakingu</translation>
         <translation>Filtruj według</translation>
     </message>
     <message>
-        <source>Amount of ANEY staked.</source>
-        <translation>Ilość ANEY staked.</translation>
+        <source>Amount of ANEY and zANEY staked.</source>
+        <translation>Ilość ANEY i zANEY staked.</translation>
     </message>
     <message>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
@@ -1502,8 +1502,36 @@ Jesteś pewny?</translation>
         <translation>Mapuj port za pomocą &amp;UPnP</translation>
     </message>
     <message>
+        <source>Enable automatic minting of ANEY units to zANEY</source>
+        <translation>Włącz automatyczny minting ANEY do zANEY</translation>
+    </message>
+    <message>
+        <source>Enable zANEY Automint</source>
+        <translation>Włącz zANEY Automint</translation>
+    </message>
+    <message>
+        <source>Enable automatic zANEY minting from specific addresses</source>
+        <translation>Włącz automatyczne wybijanie zANEY-ów z określonych adresów</translation>
+    </message>
+    <message>
         <source>Enable Automint Addresses</source>
         <translation>Włącz adresy Automint</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming ANEY which get automatically converted to zANEY via Zerocoin Protocol (min: 10%)</source>
+        <translation>Procent ANEY, które są automatycznie konwertowane na zANEY za pomocą protokołu Zerocoin (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zANEY</source>
+        <translation>Procent automint zANEY</translation>
+    </message>
+    <message>
+        <source>Wait with automatic conversion to Zerocoin until enough ANEY for this denomination is available</source>
+        <translation>Zaczekaj z automatyczną konwersją na Zerocoin, aż będzie dostępna wystarczająca wartość ANEY dla tego nominału</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zANEY Denomination</source>
+        <translation>Preferowane nominały Automint zANEY</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2211,6 +2239,10 @@ Adres: %4
     <message>
         <source>Custom Backup Path:</source>
         <translation>Standardowa ścieżka kopii zapasowej:</translation>
+    </message>
+    <message>
+        <source>Custom zANEY Backup Path:</source>
+        <translation>standardowa ścieżka kopii zapasowej zANEY:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -4073,7 +4105,7 @@ Jesteś pewny?
         <translation>Staking aktywny</translation>
     </message>
     <message>
-        <source>Staking inactive</source>
+        <source>Staking not active</source>
         <translation>Staking nieaktywny</translation>
     </message>
     <message>
@@ -4492,6 +4524,10 @@ Portfel AnimalEconomy</translation>
         <translation>Nie można uzyskać dostępu do katalogu danych %s. AnimalEconomy prawdopodobnie już działa.</translation>
     </message>
     <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>Zmień zachowanie automatycznego głosowania w budżecie finalizowanym. mode=auto: Głosuj tylko na dokładne sfinalizowane dopasowanie budżetu do mojego wygenerowanego budżetu. (ciąg, domyślny: auto)</translation>
+    </message>
+    <message>
         <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
         <translation>Limit bezpłatnych transakcji do &lt;n&gt;* 1000 bajtów na minutę (domyślnie:%u)</translation>
     </message>
@@ -4502,6 +4538,10 @@ Portfel AnimalEconomy</translation>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Usuń wszystkie transakcje portfela i odzyskaj tylko część łańcucha blokowego -reskan przy uruchomieniu</translation>
+    </message>
+    <message>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Usuń wszystkie wydane zerocoin i mint, które zostały zapisane w bazie danych blockchain i ponownie je zindeksuj (0-1, domyślnie: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
@@ -4796,6 +4836,10 @@ Portfel AnimalEconomy</translation>
         <translation>Błąd odczytu z bazy danych, wyłączenie.</translation>
     </message>
     <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>Błąd podczas zapisywania zerocoinDB na dysku</translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -4896,6 +4940,14 @@ Portfel AnimalEconomy</translation>
         <translation>Przeliczanie podaży ANEY ...</translation>
     </message>
     <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Ponowne indeksowanie bazy danych zerocoin ...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Ponowne indeksowanie zerocoin nie powiodło się</translation>
+    </message>
+    <message>
         <source>Selected coins value is less than payment target</source>
         <translation>Wybrana wartość monet jest mniejsza niż docelowa</translation>
     </message>
@@ -4904,8 +4956,8 @@ Portfel AnimalEconomy</translation>
         <translation>Jest to wersja testowa pre-release - korzystaj z niej na własne ryzyko - nie używaj do staking lub prawdziwych transakcji!</translation>
     </message>
     <message>
-        <source>Disable all ANEY specific functionality (Masternodes) (0-1, default: %u)</source>
-        <translation>Wyłącz wszystkie funkcje specyficzne dla ANEY (Masternodes) (0-1, domyślnie: %u)</translation>
+        <source>Disable all ANEY specific functionality (Masternodes, Zerocoin, Budgeting) (0-1, default: %u)</source>
+        <translation>Wyłącz wszystkie funkcje specyficzne dla ANEY (Masternodes, Zerocoin, Budgeting) (0-1, domyślnie: %u)</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -4980,6 +5032,14 @@ Portfel AnimalEconomy</translation>
         <translation>Nie udało się przeanalizować wydatków publicznych</translation>
     </message>
     <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Nie udało się wybrać zerocoin</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Nie można wyczyścić zerocoinDB</translation>
+    </message>
+    <message>
         <source>Failed to write coin serial number into wallet</source>
         <translation>Nie udało się zapisać numeru seryjnego monety w portfelu</translation>
     </message>
@@ -5014,6 +5074,10 @@ Portfel AnimalEconomy</translation>
     <message>
         <source>Loading block index...</source>
         <translation>Ładowanie indeksu bloków ...</translation>
+    </message>
+    <message>
+        <source>Loading budget cache...</source>
+        <translation>Ładowanie cache budżetu ...</translation>
     </message>
     <message>
         <source>Loading masternode cache...</source>
@@ -5296,6 +5360,10 @@ Portfel AnimalEconomy</translation>
         <translation>Synchronizacja zakończona</translation>
     </message>
     <message>
+        <source>Synchronizing budgets...</source>
+        <translation>Synchronizowanie budżetów ...</translation>
+    </message>
+    <message>
         <source>Synchronizing masternode winners...</source>
         <translation>Synchronizowanie masternode winners...</translation>
     </message>
@@ -5306,6 +5374,10 @@ Portfel AnimalEconomy</translation>
     <message>
         <source>Synchronizing sporks...</source>
         <translation>Synchronizowanie sporks...</translation>
+    </message>
+    <message>
+        <source>Syncing zANEY wallet...</source>
+        <translation>Synchronizuję portfel zANEY ...</translation>
     </message>
     <message>
         <source>This help message</source>
@@ -5408,6 +5480,10 @@ Portfel AnimalEconomy</translation>
         <translation>Nazwa użytkownika dla połączeń JSON-RPC</translation>
     </message>
     <message>
+        <source>Value is below the smallest available denomination (= 1) of zANEY</source>
+        <translation>Wartość jest mniejsza od najmniejszej dostępnej (= 1) zANEY</translation>
+    </message>
+    <message>
         <source>Verifying blocks...</source>
         <translation>Weryfikuję bloki ...</translation>
     </message>
@@ -5448,6 +5524,10 @@ Portfel AnimalEconomy</translation>
         <translation>Ostrzeżenie: Zignorowany nieobsługiwany argument -debugnet, użyj -debug=net.</translation>
     </message>
     <message>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Nie masz wystarczającej liczby Zerocoins w swoim portfelu</translation>
+    </message>
+    <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>Musisz przebudować bazę danych za pomocą -reindex, aby zmienić -txindeks</translation>
     </message>
@@ -5458,6 +5538,14 @@ Portfel AnimalEconomy</translation>
     <message>
         <source>ZeroMQ notification options:</source>
         <translation>Opcje powiadomień ZeroMQ:</translation>
+    </message>
+    <message>
+        <source>Zerocoin minting available only on regtest</source>
+        <translation>Zerocoin minting dostępne tylko podczas testu regtest</translation>
+    </message>
+    <message>
+        <source>Zerocoin options:</source>
+        <translation>Opcje Zerocoin:</translation>
     </message>
     <message>
         <source>on startup</source>

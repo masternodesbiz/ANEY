@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,14 +42,12 @@ extern const char * const DEFAULT_DEBUGLOGFILE;
 //ANEY only features
 
 extern bool fMasterNode;
-extern bool fStaking;
-extern bool fStakingActive;
-extern bool fStakingStatus;
 extern bool fLiteMode;
-extern bool fPrivacyMode;
 extern int64_t enforceMasternodePaymentsTime;
+extern std::string strMasterNodeAddr;
 extern int keysLoaded;
 extern bool fSucessfullyLoaded;
+extern std::string strBudgetMode;
 
 extern std::map<std::string, std::string> mapArgs;
 extern std::map<std::string, std::vector<std::string> > mapMultiArgs;
@@ -79,10 +77,10 @@ bool RenameOver(fs::path src, fs::path dest);
 bool TryCreateDirectory(const fs::path& p);
 fs::path GetDefaultDataDir();
 const fs::path &GetDataDir(bool fNetSpecific = true);
+const fs::path &ZC_GetParamsDir();
 void ClearDatadirCache();
 fs::path GetConfigFile();
 fs::path GetMasternodeConfigFile();
-fs::path GetActiveMasternodeConfigFile();
 #ifndef WIN32
 fs::path GetPidFile();
 void CreatePidFile(const fs::path& path, pid_t pid);
@@ -199,7 +197,5 @@ void TraceThread(const char* name, Callable func)
 }
 
 fs::path AbsPathForConfigVal(const fs::path& path, bool net_specific = true);
-
-std::string GetReadableHashRate(uint64_t hashrate);
 
 #endif // BITCOIN_UTIL_H

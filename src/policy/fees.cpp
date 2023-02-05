@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -310,6 +310,10 @@ CBlockPolicyEstimator::CBlockPolicyEstimator(const CFeeRate& _minRelayFee)
 
 void CBlockPolicyEstimator::processTransaction(const CTxMemPoolEntry& entry, bool fCurrentEstimate)
 {
+    if(entry.HasZerocoins()) {
+        // Zerocoin spends/mints had fixed feerate. Skip them for the estimates.
+        return;
+    }
 
     unsigned int txHeight = entry.GetHeight();
     uint256 hash = entry.GetTx().GetHash();
@@ -346,6 +350,10 @@ void CBlockPolicyEstimator::processTransaction(const CTxMemPoolEntry& entry, boo
 
 void CBlockPolicyEstimator::processBlockTx(unsigned int nBlockHeight, const CTxMemPoolEntry& entry)
 {
+    if(entry.HasZerocoins()) {
+        // Zerocoin spends/mints had fixed feerate. Skip them for the estimates.
+        return;
+    }
 
     if (!entry.WasClearAtEntry()) {
         // This transaction depended on other transactions in the mempool to

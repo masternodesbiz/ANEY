@@ -1,6 +1,6 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Core Developers
+// Copyright (c) 2021-2023 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,6 @@
 #define SRC_MASTERNODECONFIG_H_
 
 #include "fs.h"
-#include "primitives/transaction.h"
 
 #include <string>
 #include <vector>
@@ -28,7 +27,6 @@ public:
         std::string privKey;
         std::string txHash;
         std::string outputIndex;
-        COutPoint outpoint;
 
     public:
         CMasternodeEntry(std::string alias, std::string ip, std::string privKey, std::string txHash, std::string outputIndex)
@@ -38,7 +36,6 @@ public:
             this->privKey = privKey;
             this->txHash = txHash;
             this->outputIndex = outputIndex;
-            this->outpoint = COutPoint(uint256(txHash), (unsigned int) std::stoul(outputIndex));
         }
 
         const std::string& getAlias() const
@@ -61,7 +58,6 @@ public:
         void setOutputIndex(const std::string& outputIndex)
         {
             this->outputIndex = outputIndex;
-            this->outpoint = COutPoint(uint256(txHash), (unsigned int) std::stoul(outputIndex));
         }
 
         const std::string& getPrivKey() const
@@ -82,7 +78,6 @@ public:
         void setTxHash(const std::string& txHash)
         {
             this->txHash = txHash;
-            this->outpoint = COutPoint(uint256(txHash), (unsigned int) std::stoul(outputIndex));
         }
 
         const std::string& getIp() const
@@ -93,11 +88,6 @@ public:
         void setIp(const std::string& ip)
         {
             this->ip = ip;
-        }
-
-        const COutPoint& getOutpoint() const
-        {
-            return outpoint;
         }
     };
 
@@ -123,14 +113,6 @@ public:
             if (e.getAlias() != "") c++;
         }
         return c;
-    }
-
-    bool contains(const COutPoint& outpoint) const
-    {
-        for(auto& mne : entries) {
-            if(mne.getOutpoint() == outpoint) return true;
-        }
-        return false;
     }
 
 private:
