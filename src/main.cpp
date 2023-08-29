@@ -5917,13 +5917,13 @@ bool static ProcessMessage(CNode* pfrom, std::string strCommand, CDataStream& vR
 //       it was the one which was commented out
 int ActiveProtocol()
 {
-	// SPORK_14 was used for 90699 (v0.0.99+)
-	     //if (sporkManager.IsSporkActive(SPORK_116_NEW_PROTOCOL_ENFORCEMENT))
-	        //return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+	// SPORK_14 was used for 90699 (v1.1.0+)
+	     if (sporkManager.IsSporkActive(SPORK_116_NEW_PROTOCOL_ENFORCEMENT))
+	        return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 
 	// SPORK_15 is used for 90700 (v1.0.0+)
-	     if (sporkManager.IsSporkActive(SPORK_117_NEW_PROTOCOL_ENFORCEMENT_2))
-		 return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+	     //if (sporkManager.IsSporkActive(SPORK_117_NEW_PROTOCOL_ENFORCEMENT_2))
+		 //return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
 
 	return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 }
