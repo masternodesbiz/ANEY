@@ -28,15 +28,15 @@ Build-Depends: debhelper,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2
-Homepage: https://www.aney.net/
-Vcs-Git: git:github.com/TeamAnimalEconomy/aney.git
-Vcs-Browser: https://github.com/TeamAnimalEconomy/aney/
+Homepage: https://www.aney.one/
+Vcs-Git: git:github.com/TeamAnimalEconomy/animaleconomy.git
+Vcs-Browser: https://github.com/TeamAnimalEconomy/animaleconomy/
 
 Package: aneyd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- AnimalEconomy is a free, open source peer-to-peer electronic cash system that
+ Animaleconomy is a free, open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -52,7 +52,7 @@ Package: aney-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- AnimalEconomy is a free, open source peer-to-peer electronic cash system that
+ Animaleconomy is a free, open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -61,4 +61,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 18.5+ GB of space, slowly growing.
  .
- This package provides AnimalEconomy-Qt, a GUI for AnimalEconomy based on Qt.
+ This package provides Animaleconomy-Qt, a GUI for Animaleconomy based on Qt.

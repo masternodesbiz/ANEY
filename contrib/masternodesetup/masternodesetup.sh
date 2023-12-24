@@ -1,12 +1,12 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='aney.conf'
-CONFIGFOLDER='/root/.aney'
+CONFIG_FILE='animaleconomy.conf'
+CONFIGFOLDER='/root/.animaleconomy'
 COIN_DAEMON='aneyd'
 COIN_CLI='aney-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ=`curl -s https://api.github.com/repos/TeamAnimalEconomy/aney/releases/latest | grep "browser_download_url.*Linux\\.zip" | cut -d : -f 2,3 | tr -d \" | xargs`
+COIN_TGZ=`curl -s https://api.github.com/repos/TeamAnimalEconomy/animaleconomy/releases/latest | grep "browser_download_url.*Linux\\.zip" | cut -d : -f 2,3 | tr -d \" | xargs`
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='aney'
 COIN_PORT=33499

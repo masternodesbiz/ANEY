@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2015 The Dash Core developers
 // Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2022-2024 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -110,7 +110,7 @@ BOOST_AUTO_TEST_CASE(netbase_lookupnumeric)
 
 BOOST_AUTO_TEST_CASE(onioncat_test)
 {
-    // values from https://web.archive.org/web/20123349903543/http://www.cypherpunk.at/onioncat/wiki/OnionCat
+    // values from https://web.archive.org/web/20121122003543/http://www.cypherpunk.at/onioncat/wiki/OnionCat
     CNetAddr addr1(ResolveIP("5wyqrzbvrdsumnok.onion"));
     CNetAddr addr2(ResolveIP("FD87:D87E:EB43:edb1:8e4:3588:e546:35ca"));
     BOOST_CHECK(addr1 == addr2);

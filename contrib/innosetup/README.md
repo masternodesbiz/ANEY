@@ -35,13 +35,13 @@ Create a project folder with the following elements
 * Open the Inno Setup Compiler
 * Create a new project using the `wizard`
 * Fill in the following data:
-    * Application Name: `AnimalEconomy Core`
+    * Application Name: `Animaleconomy Core`
     * Application Version: `2.0.0.0`
-    * Application Publisher: `2021-2023 The Animal Economy Developers`
-    * Application Website: `https://aney.net/`
+    * Application Publisher: `2021-2022 The Animaleconomy Developers`
+    * Application Website: `https://aney.one/`
 * Setup the destination folder:
     * Program Files Folder
-    * Folder name: `AnimalEconomy`
+    * Folder name: `Animaleconomy`
 * Add application files:
     * Select the file `aney-qt.exe` as main executable from the `package` folder
     * Add the folder package in the other application files

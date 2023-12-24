@@ -1,5 +1,5 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2022-2024 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,6 +23,9 @@ public:
 
     void setMapper(QDataWidgetMapper *mapper);
     void setSpinBoxStakeSplitThreshold(double val);
+    void onSpinBoxStakeSplitThresholdChanged();
+    void onSpinBoxAutoCombineThresholdChanged();
+    void onAutoCombineCheckboxStateChanged();
 
 Q_SIGNALS:
     void saveSettings();

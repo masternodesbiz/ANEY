@@ -1,13 +1,13 @@
-AnimalEconomy Core
+Animaleconomy Core
 =============
 
 Setup
 ---------------------
-[AnimalEconomy Core](https://aney.net/) is the original AnimalEconomy client and it builds the backbone of the network. However, it downloads and stores the entire history of AnimalEconomy transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Animaleconomy Core](https://aney.one/) is the original Animaleconomy client and it builds the backbone of the network. However, it downloads and stores the entire history of Animaleconomy transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run AnimalEconomy Core on your native platform.
+The following are some helpful notes on how to run Animaleconomy Core on your native platform.
 
 ### Unix
 
@@ -18,21 +18,21 @@ Unpack the files into a directory and run:
 
 ### Windows
 
-Unpack the files into a directory, and then run AnimalEconomy-qt.exe.
+Unpack the files into a directory, and then run Animaleconomy-qt.exe.
 
 ### macOS
 
-Drag AnimalEconomy-Qt to your applications folder, and then run AnimalEconomy-Qt.
+Drag Animaleconomy-Qt to your applications folder, and then run Animaleconomy-Qt.
 
 ### Need Help?
 
-* See the documentation at the [AnimalEconomy Wiki](https://github.com/TeamAnimalEconomy/aney)
+* See the documentation at the [Animaleconomy Wiki](https://github.com/TeamAnimalEconomy/animaleconomy)
 for help and more information.
 * Join our Discord server [Discord Server](https://discord.gg/HapZxgUKgK)
 
 Building
 ---------------------
-The following are developer notes on how to build AnimalEconomy Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Animaleconomy Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [macOS Build Notes](build-osx.md)
@@ -42,21 +42,21 @@ The following are developer notes on how to build AnimalEconomy Core on your nat
 
 Development
 ---------------------
-The AnimalEconomy repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Animaleconomy repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://github.com/TeamAnimalEconomy/aney)
+- [Source Code Documentation (External Link)](https://github.com/TeamAnimalEconomy/animaleconomy)
 - [Translation Process](translation_process.md)
 - [Unit Tests](unit-tests.md)
 - [Unauthenticated REST Interface](REST-interface.md)
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [AnimalEconomy Homepage](https://github.com/TeamAnimalEconomy/aney).
-* Join the [AnimalEconomy Discord](https://discord.gg/HapZxgUKgK).
+* Discuss on the [Animaleconomy Homepage](https://github.com/TeamAnimalEconomy/animaleconomy).
+* Join the [Animaleconomy Discord](https://discord.gg/HapZxgUKgK).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

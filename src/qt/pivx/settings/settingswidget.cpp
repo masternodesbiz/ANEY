@@ -1,5 +1,5 @@
 // Copyright (c) 2019-2020 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2022-2024 The Animal Economy Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -254,6 +254,8 @@ void SettingsWidget::onSaveOptionsClicked()
                 args.removeAll(ZAPTXES2);
                 args.removeAll(UPGRADEWALLET);
                 args.removeAll(REINDEX);
+				args.removeAll(RESYNC);
+				args.removeAll(REWIND);
 
                 Q_EMIT handleRestart(args);
             } else {

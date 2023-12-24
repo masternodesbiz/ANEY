@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2021-2023 The Animal Economy Developers
+// Copyright (c) 2022-2024 The Animal Economy Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +29,7 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called AnimalEconomy (https://www.aney.net/),
+ * This is the developer documentation of the reference client for an experimental new digital currency called AnimalEconomy (aney.one/),
  * which enables instant payments to anyone, anywhere in the world. AnimalEconomy uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
@@ -145,6 +145,7 @@ bool AppInit(int argc, char* argv[])
         InitLogging();
         InitParameterInteraction();
         fRet = AppInit2();
+        fStakingActive = true;
     } catch (const std::exception& e) {
         PrintExceptionContinue(&e, "AppInit()");
     } catch (...) {
