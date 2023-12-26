@@ -86,7 +86,7 @@
 #include <openssl/crypto.h>
 #include <openssl/rand.h>
 
-const char * const PIVX_CONF_FILENAME = "animaleconomy.conf";
+const char * const PIVX_CONF_FILENAME = "aney.conf";
 const char * const PIVX_PID_FILENAME = "aney.pid";
 const char * const PIVX_MASTERNODE_CONF_FILENAME = "masternode.conf";
 const char * const PIVX_ACTIVE_MASTERNODE_CONF_FILENAME = "activemasternode.conf";
