@@ -293,7 +293,7 @@ fs::path GetDefaultDataDir()
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\AnimalEconomy
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\AnimalEconomy
 // Mac: ~/Library/Application Support/AnimalEconomy
-// Unix: ~/.animaleconomy
+// Unix: ~/.aney
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "AnimalEconomy";
@@ -311,7 +311,7 @@ fs::path GetDefaultDataDir()
     return pathRet / "AnimalEconomy";
 #else
     // Unix
-    return pathRet / ".animaleconomy";
+    return pathRet / ".aney";
 #endif
 #endif
 }
